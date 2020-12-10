@@ -6,7 +6,7 @@ De volgende punten moet je zelf aanpassen en nalopen:
  * Maak een database aan met de volgende naam: `spring-boot-builder-example` of pas de naam aan in `src\main\resources\application.properties`
  * Pas gebruikersnaam en/of wachtwoord aan in `src\main\resources\application.properties`.
  
-## Gebruikshandleidinggit remote add origin https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssFour.git
+## Gebruikshandleiding
 Je kunt alle gebruikers in de database opvragen door de volgende rest-endpoints aan te roepen:
 `http://localhost:8080/api/user/all`
 

@@ -24,7 +24,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    // Her ethe UserRegistrationRequest data is being made.
+    // Here the UserRegistrationRequest data is being made.
     public ResponseEntity<MessageResponse>  registerUser(@Valid UserRegistrationRequest userRegistrationRequest) {
         if (Boolean.TRUE.equals(userRepository.existsByUsername(userRegistrationRequest.getUsername()))) {
             return ResponseEntity

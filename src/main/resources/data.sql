@@ -1,5 +1,5 @@
 INSERT INTO app_user
-    (username, email, password, firstName, lastName)
+    (username, email, password, first_Name, last_Name)
 VALUES
 ('tkinset0', 'tkinset0@ucoz.com', 'UkabS844EW', 'Tandie', 'Kinset'),
 ('olackney1', 'olackney1@mozilla.com', 'FfO5PQ4d63p', 'Obadias', 'Lackney'),

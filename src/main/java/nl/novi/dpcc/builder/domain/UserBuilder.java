@@ -7,9 +7,9 @@ public class UserBuilder {
     private String email;
     private String password;
 
-    public UserBuilder(){
-
-    }
+//    public UserBuilder(){
+//
+//    }
 
     public UserBuilder withFirstName(String fn){
         this.firstName = fn;

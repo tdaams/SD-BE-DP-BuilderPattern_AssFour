@@ -25,11 +25,33 @@ public class User {
     @Column(columnDefinition = "serial")
     private long id;
 
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "firstName")
     private String firstName;
+
+    @Column(name = "lastName")
     private String lastName;
+
+    public User(){
+
+    }
+
+    public User(String un, String em, String pw, String fn, String ln){
+        this.username = un;
+        this.email = em;
+        this.password = pw;
+        this.firstName = fn;
+        this.lastName = ln;
+    }
+
 
     public long getId() {
         return id;

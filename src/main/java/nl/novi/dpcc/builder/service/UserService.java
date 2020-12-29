@@ -38,20 +38,31 @@ public class UserService {
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
 
-        User user = new UserBuilder()
-                .withUserName(userRegistrationRequest.getUsername())
-                .withPassword(userRegistrationRequest.getPassword())
-                .withPasswordRepeatCheck(userRegistrationRequest.getPasswordRepeated())
-                .withEmail(userRegistrationRequest.getEmail())
-                .withLastName(userRegistrationRequest.getLastName())
-                .withFirstName(userRegistrationRequest.getFirstName())
-                .buildwithChecks(userRegistrationRequest.getPasswordRepeated());
+        if (!userRegistrationRequest.getPassword().equals( userRegistrationRequest.getPasswordRepeated())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Passwords are not equal!"));
+        }
 
+
+        User user = getUserInRepository(userRegistrationRequest);
         // TODO Student: Bonus: Check if wachtwoorden gelijk zijn. Geef anders een error.
         // TODO Student: Hier moet het userRegistrationRequest object omgebouwd worden naar een User-object!
         // TODO Student: Huidige code slaat een leeg user object op in de database.
         userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+    }
+
+    public User getUserInRepository(UserRegistrationRequest urq){
+        User user = new UserBuilder()
+                .withUserName(urq.getUsername())
+                .withPassword(urq.getPassword())
+                .withPasswordRepeatCheck(urq.getPasswordRepeated())
+                .withEmail(urq.getEmail())
+                .withLastName(urq.getLastName())
+                .withFirstName(urq.getFirstName())
+                .buildwithChecks(urq.getPasswordRepeated());
+        return user;
     }
 
     public List<User> findAllUsers() {

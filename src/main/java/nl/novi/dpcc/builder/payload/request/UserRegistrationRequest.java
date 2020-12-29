@@ -20,19 +20,8 @@ public class UserRegistrationRequest {
     @Size(max = 100)
     @Email
     private String email;
-
     private String firstName;
     private String lastName;
-
-//    public UserRegistrationRequest(String un, String pw, String pwrpt, String em, String fn, String ln){
-//        this.username = un;
-//        this.password = pw;
-//        this.passwordRepeated = pwrpt;
-//        this.email = em;
-//        this.firstName = fn;
-//        this.lastName = ln;
-//    }
-
 
     public String getUsername() {
         return username;

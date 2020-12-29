@@ -1,15 +1,13 @@
 package nl.novi.dpcc.builder.domain;
 
 public class UserBuilder {
+    private long id;
     private String firstName;
     private String lastName;
     private String username;
     private String email;
     private String password;
 
-//    public UserBuilder(){
-//
-//    }
 
     public UserBuilder withFirstName(String fn){
         this.firstName = fn;
@@ -37,7 +35,7 @@ public class UserBuilder {
     }
 
     public UserBuilder withPasswordRepeatCheck(String pwrpt){
-        if(!this.password.equalsIgnoreCase(pwrpt)){
+        if(!this.password.equals(pwrpt)){
             throw new RuntimeException("Passwords do not match!");
         }
         return this;
@@ -48,7 +46,7 @@ public class UserBuilder {
     }
 
     public User buildwithChecks(String pwchk){
-        if(!password.equalsIgnoreCase(pwchk)){
+        if(!password.equals(pwchk)){
             throw new RuntimeException("Password is not the same.");
         }
         return new User(username,email,password,firstName,lastName);
